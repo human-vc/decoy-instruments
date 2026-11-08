@@ -37,7 +37,7 @@ python run_nat.py
 | Path | Contents |
 |---|---|
 | `scenarios_v2.py`, `kill2.py`, `kill3.py` | The 20 settings and their codebooks |
-| `scenarios_nat.py` | The six held-out published cases |
+| `scenarios_nat.py`, `fictional.py` | The six held-out published cases, and the same cases with each published channel replaced by an invented program |
 | `estimate_v2.py` | Simulated data and regression tables for the estimation step |
 | `abs_v2.py`, `cost_v2.py`, `run_nat.py` | Runners and call manifest |
 | `build_coding.py` | Draws the 240-response coding sample |

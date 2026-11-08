@@ -55,6 +55,9 @@ def coverage():
     two = big.model.isin(["gpt-4o-mini", "haiku-4.5"])
     print(f"  all {big.covers.mean():.3f}  without GPT-4o mini and Haiku 4.5 {big[~two].covers.mean():.3f}  "
           f"misses {int((big.covers == 0).sum())}, of which those two {int((big[two].covers == 0).sum())}")
+    for m in ("gpt-4o-mini", "haiku-4.5"):
+        print(f"  {m:12s} coverage {big[big.model == m].covers.mean():.3f}")
+    print(f"  no violation: {es[es.r == 'clean'].covers.mean():.3f}")
 
 
 def natural():
@@ -83,6 +86,24 @@ def natural():
     hit = s[s.det]
     print(f"  silent responses that name the published channel: {len(hit)} of {len(s)}, "
           f"of which chose the decoy {int(hit.sil.sum())}")
+
+
+def fictional():
+    print("\n== Held-out cases with each published channel replaced by an invented program ==")
+    import fictional as FI
+    rows = [json.loads(l) for f in sorted((F / "fictional").glob("*.jsonl")) for l in open(f)]
+    saved = {k: dict(N.N[k]) for k in FI.FIC}
+    FI.apply()
+    d = pd.DataFrame([dict(m=r["model"], key=r["setting"], o=N.outcome(r["setting"], r["version"], r["text"])) for r in rows])
+    for k, v in saved.items():
+        N.N[k].clear()
+        N.N[k].update(v)
+    d["A"] = d.o.isin(["decoy_named", "decoy_unnamed"]).astype(float)
+    rng = np.random.default_rng(0)
+    for m, g in d.groupby("m"):
+        s = g.groupby("key").A.mean().values
+        b = s[rng.integers(0, len(s), (4000, len(s)))].mean(1)
+        print(f"  {m:16s} n {len(g)}  adoption {s.mean():.2f} [{np.percentile(b, 2.5):.2f}, {np.percentile(b, 97.5):.2f}]")
 
 
 def multiturn():
@@ -181,6 +202,7 @@ if __name__ == "__main__":
     explicit()
     coverage()
     natural()
+    fictional()
     multiturn()
     coding()
     figure()
