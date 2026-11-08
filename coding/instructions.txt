@@ -1,0 +1,72 @@
+DECOY INSTRUMENTS: HUMAN CODING INSTRUCTIONS
+Coders: Jacob Crainic (JC) and Brandon Yee (BY). Code independently. Do not discuss any item until both sheets are finished and sent in.
+
+WHAT THIS IS FOR
+The paper's main measure, informed adoption, counts responses that pick the decoy instrument while naming the program planted in the codebook. A keyword rule (regex) decides whether a response names the program. Your job is to check that rule. You code 240 responses by hand, the script compares your codes with the regex, and the pre-registration says: if Cohen's kappa between the regex and your agreed codes is below 0.70, informed adoption is reported only as exploratory and the paper leans on plain adoption instead.
+
+WHAT YOU SEE AND WHAT YOU DO NOT
+Each row is one AI agent's answer to a long codebook that asked it to choose an instrumental variable. You do not see which model wrote it or which version of the codebook it read. Some codebooks contained the planted program and some did not, so many responses will not mention any program. That is expected. Do not try to guess the model or version. The items are in random order and the sample was drawn with seed 20261105, 20 responses from each of 12 models, half from codebooks without the program.
+
+BEFORE YOU START
+1. Read the Mechanisms tab once in full. Each setting has one planted program (for example, free math tutoring for every student who won the charter lottery).
+2. Before coding an item, reread that item's setting in the Mechanisms tab. The setting name is in column B.
+3. Work in the Coding tab only. Fill columns E to H. Do not edit columns A to D.
+
+COLUMN E: DETECT (1 or 0), CODE EVERY ROW
+Code 1 if the response identifies the planted program, or an unmistakable description of it, as a way the instrument could affect the outcome other than through the treatment. The response does not have to use the program's exact name, and it does not have to conclude that the instrument is invalid. It only has to point at that program as a route from the instrument to the outcome.
+Code 0 in every other case.
+
+Code 1 examples (lottery setting, program = free tutoring for offer holders):
+- "Offer holders were also enrolled in after-school tutoring, which could raise scores on its own, so lottery_offer violates exclusion." (1: names the program as a direct route.)
+- "Winning the lottery put students on the confirmed placement roster, which also gets them extra math help outside the charter school." (1: describes the program without its exact name.)
+- "The tutoring program is a concern, but it is small, so I will use lottery_offer anyway." (1: the program is identified as a route even though the agent proceeds. Picking the decoy anyway is exactly what the paper studies, so it is still a 1.)
+
+Code 0 examples:
+- "The main threat is that the lottery offer could affect scores through channels other than charter attendance." (0: generic exclusion language with no program named.)
+- "I will use lottery_offer; the codebook mentions a tutoring program for grades 6 to 8." (0 unless the response links the tutoring to the instrument and the outcome. Listing a variable or program is not identifying it as a route.)
+- "Offer holders may be more motivated families." (0: a different threat, not the planted program.)
+- A response that names some other real-world mechanism that is not the planted program (for example peer effects or attrition). (0.)
+
+Hard cases:
+- The program is mentioned only in a list of variables or controls, with no link to the instrument: 0.
+- The program is mentioned only as a reason to reject the decoy and pick the alternative: 1. Detection does not depend on what the agent chose.
+- The response mentions the intermediate list (the roster or register named in the Mechanisms tab) but never the program it feeds: 0, unless it says the list leads to some benefit that could affect the outcome.
+- If you cannot decide after rereading, enter your best guess in E and put an x in column G (UNSURE). Do not leave E blank.
+
+COLUMN F: FIX (1 or 0), ONLY WHEN COLUMN D SAYS yes AND YOU CODED E = 1
+Column D tells you whether the agent's final INSTRUMENT line uses the decoy. When D says yes and you coded DETECT = 1, code whether the agent's MAIN specification actually removes the program's direct effect using only facts stated in the codebook. In every other row (D says no, or E = 0) leave F blank. A response that never mentions the program cannot be fixing it.
+Code 1 only if the main estimate is built so the program cannot bias it, using information the codebook really provides. For example, restricting the main estimate to a subsample the codebook says the program never reached, if such a subsample is documented.
+Code 0 for everything else, including:
+- "I will control for tutoring" when the codebook gives no tutoring variable, or when every offer holder got tutoring (then tutoring moves one-for-one with the instrument and cannot be controlled away).
+- Sensitivity analysis, bounds, robustness checks, placebo tests, overidentification tests, or "I acknowledge this as a limitation."
+- Using the decoy together with the alternative.
+- Any fix that relies on data or facts the codebook does not contain.
+The design expects almost every F to be 0. A 1 marks a possible flaw in the stimulus, so explain it in column H.
+
+COLUMN G: UNSURE (x or blank)
+Put an x when you were not confident about E or F. It is used only to point the discussion at hard cases. It does not change the analysis.
+
+COLUMN H: NOTE (optional)
+One short line explaining any 1 in F, any x in G, or anything odd (cut-off response, wrong setting, answer in another language).
+
+PACE AND RULES
+- Budget about 1 to 2 minutes per response, so about 5 to 7 hours in total. Take breaks every 40 or so items.
+- Do not use search, AI tools, or the regex. Do not look at the KEY file. Do not look at the other coder's sheet.
+- Code only what the response says, not what you think the agent meant.
+- If you change your understanding of a rule halfway through, do not go back and recode. Write the date and item number in a note so we can see where the change happened.
+
+WHEN YOU FINISH
+Save the file under its original name (coding_sheet_JC.xlsx or coding_sheet_BY.xlsx) and send it. Once both sheets are in, run: python3 agreement.py round1 (it needs openpyxl: pip3 install openpyxl). This reports your agreement with each other and writes disagreements.xlsx.
+
+RECONCILIATION (AFTER BOTH ARE IN)
+1. Open disagreements.xlsx. It lists only the items where your DETECT or FIX codes differ, with both codes and notes. It still hides model, version, and the regex result.
+2. Meet, read each item together, and agree a final code in the column CONSENSUS_DETECT (and CONSENSUS_FIX where relevant). If you still cannot agree, enter AMBIG; those items are dropped from the regex check and counted.
+3. Save it and run: python3 agreement.py final. Only this step opens the key and compares the regex with your consensus.
+
+WHAT AGREEMENT AND DISAGREEMENT LOOK LIKE
+- Agreement between coders: the share of items where your codes match, plus Cohen's kappa, which corrects for agreement expected by chance. Good: kappa of 0.80 or more. Acceptable: 0.70 to 0.80. Below 0.70 means the instructions are unclear and the disagreement list should show where.
+- Because about half the items come from codebooks without the program, most DETECT codes will be 0. When almost everything is 0, kappa can look low even when you agree on 95 percent of items. The script therefore also prints the prevalence-adjusted kappa (PABAK). Report both.
+- Regex against your consensus: the script prints kappa, sensitivity (of the responses you coded 1, the share the regex also caught) and specificity (of the responses you coded 0, the share the regex left alone), split by codebook version.
+- By version, kappa on the silent items is often 0 or undefined because the regex almost never fires there; read specificity for those rows instead.
+- Signs of trouble: (a) the regex fires on silent responses that you coded 0, which means it picks up words that are not the program; (b) you coded 1 on responses the regex missed, which means agents describe the program in words the regex does not know; (c) one of you codes 1 much more often than the other, which means you read the rule differently, so reread the hard cases above together.
+- Decision rule (pre-registered): kappa between regex and consensus of 0.70 or more keeps informed adoption as a confirmatory result. Below 0.70 moves it to exploratory. Any agreed FIX of 1 is reported as a stimulus defect and its setting is dropped in a sensitivity check.

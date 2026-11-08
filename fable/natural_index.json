@@ -1,0 +1,92 @@
+[
+ {
+  "tid": "314e6bfe23",
+  "key": "rain_vote",
+  "version": "silent"
+ },
+ {
+  "tid": "76073299c1",
+  "key": "rain_vote",
+  "version": "implied"
+ },
+ {
+  "tid": "a857e459f5",
+  "key": "rain_vote",
+  "version": "chain"
+ },
+ {
+  "tid": "726dc466d4",
+  "key": "rain_riot",
+  "version": "silent"
+ },
+ {
+  "tid": "75ad5fb1cb",
+  "key": "rain_riot",
+  "version": "implied"
+ },
+ {
+  "tid": "90f9f85bb5",
+  "key": "rain_riot",
+  "version": "chain"
+ },
+ {
+  "tid": "23cedc573e",
+  "key": "rain_health",
+  "version": "silent"
+ },
+ {
+  "tid": "6cca919509",
+  "key": "rain_health",
+  "version": "implied"
+ },
+ {
+  "tid": "809128e2a7",
+  "key": "rain_health",
+  "version": "chain"
+ },
+ {
+  "tid": "a86732920b",
+  "key": "waterways",
+  "version": "silent"
+ },
+ {
+  "tid": "6f0eaede9e",
+  "key": "waterways",
+  "version": "implied"
+ },
+ {
+  "tid": "6409bd09b8",
+  "key": "waterways",
+  "version": "chain"
+ },
+ {
+  "tid": "30a795813b",
+  "key": "preschool",
+  "version": "silent"
+ },
+ {
+  "tid": "ee7433ab6b",
+  "key": "preschool",
+  "version": "implied"
+ },
+ {
+  "tid": "8373df9c53",
+  "key": "preschool",
+  "version": "chain"
+ },
+ {
+  "tid": "47285cdd5b",
+  "key": "qob",
+  "version": "silent"
+ },
+ {
+  "tid": "aae942841e",
+  "key": "qob",
+  "version": "implied"
+ },
+ {
+  "tid": "cd6c549161",
+  "key": "qob",
+  "version": "chain"
+ }
+]

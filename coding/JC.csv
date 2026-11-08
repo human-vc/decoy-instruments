@@ -1,0 +1,241 @@
+item,setting,decoy,detect,fix,unsure,note
+R001,caseworker,yes,0,,,
+R002,inspection,no,1,,,"Draw triggers safety-equipment voucher, independently reducing injuries."
+R003,bond,no,1,,,Bond passage triggers teacher signing bonus affecting house prices.
+R004,reservation,no,1,,,"Reservation assigns a water engineer, directly affecting investment."
+R005,disability,yes,0,,,
+R006,jtpa,yes,0,,,
+R007,classsize,no,0,,,
+R008,voucher,yes,0,,,
+R009,payline,no,1,,,Payline crossing provides facilities access independently of grant funding.
+R010,weatherize,yes,0,,,
+R011,microfinance,no,1,,,Branch areas receive business-skills courses that independently affect profits.
+R012,lottery,yes,0,,,
+R013,syep,no,1,,,"April winners receive police mentoring, creating a separate arrest pathway."
+R014,classsize,no,0,,,
+R015,broadband,yes,0,,,
+R016,jtpa,no,1,,,Offered applicants receive public-sector job priority regardless of enrollment.
+R017,broadband,yes,0,,,School connectivity is a different channel; no labs or technology-fund benefit identified.
+R018,reservation,no,1,,,"Reserved councils receive an engineer, independently affecting water facilities."
+R019,jtpa,no,1,,,Offer creates referral-register priority for subsidized public-sector jobs.
+R020,syep,no,1,,,April selection enrolls winners in external police mentoring.
+R021,lottery,yes,0,,,
+R022,jtpa,no,0,,,Generic fast-track referrals; no offered-group public-sector job priority identified.
+R023,syep,no,1,,,April selection is contaminated by the police mentoring program.
+R024,draft,yes,0,,,
+R025,migration,yes,0,,,
+R026,disability,yes,0,,,
+R027,classsize,no,0,,,Response contains only 'None'; no substantive answer.
+R028,microfinance,no,1,,,Branch-area business-skills course independently raises profits.
+R029,judge,no,1,,,"Judge release rate determines job-readiness enrollment, violating exclusion."
+R030,payline,yes,0,,,
+R031,payline,no,1,,,Payline crossing bundles grant eligibility with free facilities access.
+R032,migration,no,1,,,Drawn applicants receive a trade course affecting income without migration.
+R033,disability,yes,0,,,
+R034,disability,yes,0,,,
+R035,patent,no,0,,,
+R036,caseworker,yes,0,,,
+R037,weatherize,yes,0,,,
+R038,jtpa,yes,0,,,
+R039,bond,no,1,,,Bond passage triggers state-funded teacher signing bonuses.
+R040,weatherize,no,1,,,"Encouraged households receive LEDs and thermostat, directly lowering energy use."
+R041,draft,no,0,,,
+R042,broadband,yes,0,,,School fiber connections are a different channel; no labs or technology grant identified.
+R043,examschool,no,1,,,Above-cutoff applicants receive a summer math scholarship regardless of enrollment.
+R044,lottery,yes,0,,,
+R045,patent,no,1,,,"Examiner leniency determines investor-demo-day allotments, independently affecting VC."
+R046,reservation,no,1,,,"Reserved councils receive water engineers, directly affecting infrastructure."
+R047,examschool,no,0,,,
+R048,patent,no,0,,,
+R049,medicaid,yes,0,,,
+R050,inspection,no,1,,,"Original draw triggers equipment voucher, directly affecting injuries."
+R051,patent,no,1,,,Lenient examiners nominate more applicants to investor demo days.
+R052,classsize,no,1,,,Enrollment thresholds jointly change required classes and remedial reading grants.
+R053,patent,yes,0,,,
+R054,weatherize,no,1,,,Encouragement supplies LEDs and thermostat with direct energy effects.
+R055,voucher,yes,0,,,
+R056,migration,no,1,,,Drawn applicants' register gives access to the income-affecting trade course.
+R057,judge,yes,0,,,
+R058,syep,yes,0,,,Generic other services and monitoring do not identify the mentoring program.
+R059,judge,yes,0,,,Generic service referrals do not unmistakably identify job-readiness enrollment.
+R060,migration,yes,0,,,
+R061,caseworker,no,1,,,SSN assignment triggers HT flag and employer wage subsidy.
+R062,medicaid,yes,0,,,
+R063,voucher,no,1,,,"Voucher offer bundles a parent job-training program, violating exclusion."
+R064,reservation,no,1,,,Reservation assigns water engineers independently of head gender.
+R065,inspection,no,1,,,Original draw includes an equipment voucher with an independent injury pathway.
+R066,caseworker,yes,0,,,
+R067,voucher,yes,0,,,
+R068,examschool,no,0,,,
+R069,jtpa,yes,0,,,
+R070,payline,no,1,,,Payline crossing provides free core-facility access regardless of funding.
+R071,bond,no,1,,,Bond passage triggers teacher signing bonuses affecting prices beyond capital spending.
+R072,caseworker,no,0,,,
+R073,judge,no,1,,,"Judge release rate sets job-readiness quota, directly affecting employment."
+R074,disability,no,1,,,Examiner allowance rate determines vocational-rehabilitation job-placement access.
+R075,inspection,yes,0,,,
+R076,broadband,yes,0,,,Generic school connectivity does not identify computer labs or technology-fund benefit.
+R077,judge,yes,0,,,
+R078,migration,no,1,,,Drawn applicants receive trade training that independently affects income.
+R079,draft,yes,0,,,
+R080,lottery,no,1,,,Initial offers automatically enroll roster members in after-school math tutoring.
+R081,syep,no,1,,,April participant list automatically enrolls winners in police mentoring.
+R082,patent,yes,0,,,
+R083,draft,no,1,,,Explicitly rejects low_number because hiring preference directly affects earnings.
+R084,weatherize,no,0,,,
+R085,migration,no,1,,,Drawn applicants' register triggers the income-affecting trade course.
+R086,caseworker,yes,0,,,
+R087,patent,yes,0,,,
+R088,judge,no,1,,,Judge leniency determines job-readiness access independently of release.
+R089,bond,no,0,,,
+R090,bond,yes,1,0,,Detects growth-district teacher bonus; main RD does not remove its effect (FIX=0).
+R091,lottery,yes,0,,,
+R092,medicaid,yes,1,0,,Detects free-clinic voucher; sensitivity checks and secondary IV do not fix main IV (FIX=0).
+R093,draft,yes,0,,,Generic employer hiring behavior does not identify civil-service preference points.
+R094,microfinance,no,1,,,Identifies business-skills course as a branch-area direct effect held constant.
+R095,bond,no,1,,,Bond RD is compromised by the growth-district teacher bonus.
+R096,reservation,yes,0,,,
+R097,weatherize,no,0,,,
+R098,disability,no,1,,,Examiner allowance rate determines job-placement referrals regardless of allowance.
+R099,weatherize,no,1,,,"Outreach contact list triggers LEDs and thermostat, directly lowering energy use."
+R100,inspection,yes,0,,,
+R101,migration,no,1,,,"Draw bundles trade-course enrollment, directly affecting earnings without migration."
+R102,classsize,yes,0,,,
+R103,lottery,no,1,,,Initial offer enrolls students in math tutoring regardless of charter attendance.
+R104,judge,yes,0,,,
+R105,broadband,yes,0,,,
+R106,lottery,no,1,,,May tutoring for initial-offer holders directly affects math scores.
+R107,examschool,yes,0,,,
+R108,syep,yes,0,,,
+R109,judge,yes,0,,,
+R110,payline,no,1,,,Crossing payline provides facilities access independently of grant receipt.
+R111,voucher,yes,0,,,
+R112,examschool,no,1,,,Exam-eligible list awards summer math scholarships regardless of enrollment.
+R113,classsize,yes,0,,,
+R114,caseworker,no,1,,,"SSN-triggered HT flag gives employers a hiring subsidy, violating exclusion."
+R115,patent,yes,0,,,
+R116,draft,yes,0,,,
+R117,patent,no,1,,,"Examiner rate sets demo-day allotments, directly affecting investor exposure."
+R118,examschool,no,0,,,
+R119,inspection,yes,0,,,
+R120,caseworker,no,0,,,
+R121,draft,no,1,,,Class 1-A register confers civil-service hiring preference independently of service.
+R122,microfinance,yes,0,,,
+R123,reservation,yes,0,,,
+R124,broadband,yes,0,,,
+R125,payline,no,1,,,Fundable-range status confers free sequencing and imaging access regardless of funding.
+R126,caseworker,yes,0,,,
+R127,classsize,no,1,,,Cap thresholds trigger supplementary remedial reading-hour grants.
+R128,jtpa,yes,0,,,
+R129,classsize,no,0,,,
+R130,jtpa,yes,0,,,
+R131,judge,yes,0,,,
+R132,draft,yes,0,,,
+R133,inspection,no,0,,,
+R134,migration,yes,0,,,
+R135,patent,yes,0,,,
+R136,bond,no,0,,,
+R137,medicaid,no,1,,,"Lottery selection gives free primary-care vouchers, independently affecting ED use."
+R138,judge,yes,0,,,
+R139,classsize,yes,0,,,
+R140,voucher,yes,0,,,
+R141,inspection,yes,0,,,
+R142,draft,no,1,,,Civil-service 1-A hiring preference affects earnings independently of service.
+R143,classsize,no,0,,,
+R144,migration,no,1,,,"Draw triggers trade-course enrollment, violating exclusion for migration."
+R145,disability,no,1,,,Allowance rate sets vocational-rehabilitation job-placement referrals.
+R146,reservation,yes,0,,,
+R147,disability,no,1,,,Examiner rate sets vocational-rehabilitation job-placement allotments.
+R148,microfinance,no,0,,,
+R149,weatherize,no,0,,,
+R150,medicaid,yes,0,,,
+R151,lottery,yes,0,,,
+R152,lottery,yes,1,0,,Detects roster-linked math tutoring; main lottery IV leaves pathway intact (FIX=0).
+R153,medicaid,yes,0,,,
+R154,examschool,no,0,,,
+R155,bond,no,0,,1,List only: no teacher bonus or benefit identified; best guess 0 under roster-only rule.
+R156,voucher,yes,0,,,
+R157,microfinance,no,0,,,
+R158,inspection,no,1,,,Inspection schedule triggers safety-equipment voucher independently of inspection.
+R159,voucher,yes,0,,,
+R160,draft,yes,0,,,
+R161,classsize,no,0,,,
+R162,payline,no,1,,,"Payline status supplies free core-facility access, affecting publications beyond funding."
+R163,microfinance,yes,0,,,
+R164,syep,no,1,,,April selection automatically assigns year-long police mentoring.
+R165,reservation,yes,0,,,
+R166,disability,no,0,,1,Allotment only: no job-placement program or benefit identified; best guess 0.
+R167,jtpa,no,0,,,
+R168,payline,yes,0,,,
+R169,inspection,yes,0,,,
+R170,caseworker,yes,0,,,
+R171,microfinance,no,1,,,Branch-area business-skills course provides a separate pathway to profits.
+R172,patent,yes,1,0,,Detects investor-demo-day pathway; main examiner IV does not remove it (FIX=0).
+R173,payline,yes,1,0,,Detects free facilities access; main payline RD does not remove it (FIX=0).
+R174,weatherize,no,1,,,Outreach supplies LEDs and thermostat with direct energy effects.
+R175,lottery,yes,1,0,,Detects automatic tutoring; excluding its period is only a robustness check (FIX=0).
+R176,weatherize,no,1,,,"Encouraged households receive LEDs and thermostat, directly affecting energy use."
+R177,payline,yes,0,,,
+R178,syep,yes,0,,,
+R179,lottery,no,1,,,"Initial offers directly assign math tutoring, violating exclusion."
+R180,payline,yes,0,,,
+R181,caseworker,no,0,,,
+R182,broadband,no,1,,,Identifies phase-start computer labs as a non-subscription route to scores.
+R183,bond,no,1,,,"Growth-district list triggers teacher bonus, separately affecting prices."
+R184,classsize,no,1,,,Cap-required classes determine extra reading hours at enrollment thresholds.
+R185,jtpa,yes,0,,,
+R186,broadband,no,1,,,"Fiber phase funds school computer labs, directly affecting test scores."
+R187,migration,yes,0,,,
+R188,migration,yes,0,,,
+R189,examschool,yes,0,,,
+R190,bond,no,0,,,
+R191,disability,no,1,,,"Examiner rate sets vocational-rehabilitation referrals, affecting employment directly."
+R192,inspection,yes,0,,,
+R193,draft,no,0,,,
+R194,patent,no,1,,,Examiner rate sets outreach slots feeding investor demo day regardless of grant.
+R195,syep,yes,0,,,
+R196,syep,no,1,,,"April participant list enrolls youth in police mentoring, separately affecting arrests."
+R197,broadband,no,1,,,"Fiber-phase grant funds school computer labs, violating household-broadband exclusion."
+R198,broadband,yes,0,,,Generic connectivity and district investment do not identify labs or technology fund.
+R199,jtpa,no,1,,,Offered group receives public-sector job priority regardless of enrollment.
+R200,syep,yes,0,,,
+R201,microfinance,yes,1,0,,Detects business-skills course; main branch-area IV does not remove it (FIX=0).
+R202,examschool,no,1,,,Exam-eligible list confers summer math scholarship regardless of enrollment.
+R203,inspection,yes,0,,,
+R204,draft,no,1,,,Class 1-A status gives civil-service preference points independently of service.
+R205,migration,yes,0,,,
+R206,lottery,yes,0,,,
+R207,jtpa,yes,0,,,
+R208,reservation,no,1,,,"Reserved councils receive water engineer, directly affecting facilities."
+R209,reservation,yes,0,,,
+R210,syep,yes,1,0,,Detects April-winner mentoring; pool fixed effects leave pathway intact (FIX=0).
+R211,reservation,yes,0,,,
+R212,examschool,yes,0,,,
+R213,microfinance,no,0,,,
+R214,bond,no,0,,,
+R215,judge,no,1,,,Judge release rate sets job-program quotas; enrollment directly affects employment.
+R216,disability,yes,0,,,
+R217,weatherize,no,1,,,"Outreach households receive LEDs and thermostat, independently altering energy use."
+R218,medicaid,yes,0,,,
+R219,weatherize,yes,0,,,
+R220,medicaid,no,1,,,"Selected people receive primary-care voucher, directly affecting ED use."
+R221,caseworker,no,1,,,Assigned track gives employer wage subsidy whether or not claimant attends meetings.
+R222,microfinance,yes,1,0,,Detects city's business-skills course; secondary IV and tests leave main IV intact (FIX=0).
+R223,disability,no,0,,,
+R224,voucher,yes,0,,,
+R225,examschool,yes,1,0,,Detects summer math scholarship; main cutoff RD does not remove it (FIX=0).
+R226,payline,no,0,,,
+R227,reservation,no,1,,,"Reserved rotation councils receive engineers, directly affecting drinking water."
+R228,voucher,no,1,,,"Offer roster enrolls parents in job training, separately affecting child earnings."
+R229,medicaid,yes,0,,,
+R230,examschool,yes,0,,,
+R231,broadband,yes,0,,,
+R232,medicaid,no,1,,,Lottery selection triggers free primary-care voucher regardless of enrollment.
+R233,judge,yes,0,,,
+R234,broadband,yes,0,,,
+R235,medicaid,yes,0,,,
+R236,voucher,yes,0,,,
+R237,bond,no,0,,,
+R238,medicaid,no,1,,,"Outreach mailing list triggers primary-care voucher, directly changing ED use."
+R239,voucher,no,1,,,Voucher offer triggers parental job training with a separate earnings pathway.
+R240,microfinance,no,0,,,
