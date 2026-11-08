@@ -85,6 +85,28 @@ def natural():
           f"of which chose the decoy {int(hit.sil.sum())}")
 
 
+def multiturn():
+    print("\n== Multi-turn: agent opens the codebook and documentation with tools ==")
+    from decoybench.agentic import Folder, saw
+    from decoybench.run import load_cases
+    cases = {c["key"]: c for c in load_cases()}
+    rows = [json.loads(l) for l in open(F / "multiturn.jsonl")]
+    rows = [r for r in rows if "error" not in r]
+    for r in rows:
+        f = Folder({})
+        f.opened = [tuple(x) for x in r["reads"]]
+        c = cases[r["case"]]
+        r["seen"] = saw(c, r["version"], f, "var") and saw(c, r["version"], f, "alt_var")
+        r["doc"] = "documentation.txt" in r["opened"]
+    d = pd.DataFrame(rows)
+    for m, g in d.groupby("model"):
+        v = g[g.version != "silent"]
+        s = v[v.seen]
+        print(f"  {m:12s} n {len(g):3d}  adoption {v.adopt.mean():.2f}  opened documentation {g.doc.mean():.2f}  "
+              f"saw both candidates {g.seen.mean():.2f}  adoption when seen {s.adopt.mean():.2f} (n {len(s)})  "
+              f"informed when seen {s.informed.mean():.2f}")
+
+
 def coding():
     print("\n== Human coding ==")
 
@@ -159,5 +181,6 @@ if __name__ == "__main__":
     explicit()
     coverage()
     natural()
+    multiturn()
     coding()
     figure()

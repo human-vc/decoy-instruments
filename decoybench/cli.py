@@ -1,6 +1,7 @@
 import argparse
 import json
 
+from .agentic import loop_from_name
 from .agents import from_name
 from .run import VERSIONS, run
 
@@ -12,9 +13,11 @@ def main():
     ap.add_argument("--versions", nargs="+", default=list(VERSIONS), choices=list(VERSIONS))
     ap.add_argument("--repeats", type=int, default=1)
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--multiturn", action="store_true", help="the agent must open the codebook and documentation files with tools")
     ap.add_argument("--out", help="write every response and score to this JSONL file")
     a = ap.parse_args()
-    summary, rows = run(from_name(a.model), a.source, a.versions, a.repeats, a.workers)
+    agent = loop_from_name(a.model) if a.multiturn else from_name(a.model)
+    summary, rows = run(agent, a.source, a.versions, a.repeats, a.workers, a.multiturn)
     if a.out:
         with open(a.out, "w") as f:
             for r in rows:

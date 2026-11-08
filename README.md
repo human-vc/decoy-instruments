@@ -41,7 +41,7 @@ python run_nat.py
 | `estimate_v2.py` | Simulated data and regression tables for the estimation step |
 | `abs_v2.py`, `cost_v2.py`, `run_nat.py` | Runners and call manifest |
 | `build_coding.py` | Draws the 240-response coding sample |
-| `out5/`, `out_nat/`, `followup/` | Model responses (`out_nat/v1/` is the held-out run before calibration) |
+| `out5/`, `out_nat/`, `followup/` | Model responses (`out_nat/v1/` is the held-out run before calibration; `followup/multiturn.jsonl` is the multi-turn run) |
 | `coding/` | Coding instructions, sampled responses, both coders' codes and the reconciled codes |
 | `decoybench/`, `make_cases.py` | The installable test and the script that exports its cases |
 | `docs/` | Pre-registration and held-out case rules |
