@@ -39,12 +39,46 @@ def followup():
     print(f"  n {n}  adoption {(c['decoy_named'] + c['decoy_unnamed']) / n:.3f}  {dict(c)}")
 
 
+def reasoning_off():
+    print("\n== Reasoning configuration follow-up (plan: followup/reasoning_off/PLAN.md) ==")
+    pairs = {"haiku-5.5-nothink": "haiku-5.5", "gpt-5-mini-minimal": "gpt-5-mini", "sonnet-5.5-nothink": "sonnet-5.5"}
+    main = Z.load(ROOT / "out5")[0]
+    new = Z.load(F / "reasoning_off")[0]
+    for alt, src in pairs.items():
+        a = new[(new.model == alt) & (new.arm == "neutral") & (new.threat == True)]
+        b = main[(main.model == src) & (main.arm == "neutral") & (main.threat == True)]
+        if not len(a):
+            continue
+        ta, tb = Z.theta_j(a, "adopt", Z.VIOL), Z.theta_j(b, "adopt", Z.VIOL)
+        fa = Z.theta_j(a, "fp", Z.VIOL)
+        d = (ta - tb).dropna()
+        rng = np.random.default_rng(0)
+        bs = d.values[rng.integers(0, len(d), (4000, len(d)))].mean(1)
+        print(f"  {alt:20s} n {len(a)}  adoption {ta.mean():.3f} vs {tb.mean():.3f} ({src})  difference {d.mean():+.3f} "
+              f"[{np.percentile(bs, 2.5):+.3f}, {np.percentile(bs, 97.5):+.3f}]  named adoption {fa.mean():.3f}")
+
+
 def explicit():
     print("\n== Explicit version (codebook states the decoy is invalid) ==")
     ag = Z.load(ROOT / "out5")[0]
     b = ag[(ag.arm == "neutral") & (ag.threat == True) & (ag.version == "explicit")]
     for m, g in b.groupby("model"):
         print(f"  {m:20s} n {len(g)}  adoption {g.adopt.mean():.3f}  informed adoption {g.fp.mean():.3f}")
+
+
+def bounded():
+    print("\n== Adoption when adoptions that propose bounds or sensitivity analysis count as acceptable ==")
+    ag = Z.load(ROOT / "out5")[0]
+    b = ag[(ag.arm == "neutral") & (ag.threat == True) & ag.version.isin(Z.VIOL)].copy()
+    pat = re.compile(r"\bbound(s|ing|ed)?\b|conley|plausibly exogenous|partial identif|identified set|manski|"
+                     r"sensitivity analys|range of (estimates|effects)", re.I)
+    b["bounds"] = [bool(pat.search(V.prose(t))) for t in b.text]
+    for m in ("gemma-4-31b", "haiku-4.5", "gpt-4o-mini", "gpt-5-mini"):
+        g = b[b.model == m]
+        a = Z.theta_j(g, "adopt", Z.VIOL)
+        a2 = Z.theta_j(g.assign(adopt=np.where((g.adopt == 1) & g.bounds, 0.0, g.adopt)), "adopt", Z.VIOL)
+        print(f"  {m:12s} adoptions {int(g.adopt.sum())}, proposing bounds {int(((g.adopt == 1) & g.bounds).sum())}  "
+              f"adoption {a.mean():.3f}, excluding bounded {a2.mean():.3f}")
 
 
 def coverage():
@@ -199,7 +233,9 @@ def figure():
 
 if __name__ == "__main__":
     followup()
+    reasoning_off()
     explicit()
+    bounded()
     coverage()
     natural()
     fictional()
