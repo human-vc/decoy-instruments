@@ -19,7 +19,7 @@ python analyze_v2.py
 python reproduce.py
 ```
 
-`analyze_v2.py` is the pre-registered analysis (Table 1 and the main hypothesis tests). `reproduce.py` prints every other number in the paper and writes Figure 1. Neither needs API keys.
+`analyze_v2.py` is the analysis fixed in the plan (Table 1 and the main hypothesis tests). `reproduce.py` prints every other number in the paper and writes Figure 1. Neither needs API keys.
 
 ## Rerun the models
 
@@ -44,5 +44,5 @@ python run_nat.py
 | `out5/`, `out_nat/`, `followup/` | Model responses (`out_nat/v1/` is the held-out run before calibration; `followup/multiturn.jsonl` is the multi-turn run) |
 | `coding/` | Coding instructions, sampled responses, both coders' codes and the reconciled codes |
 | `decoybench/`, `make_cases.py` | The installable test and the script that exports its cases |
-| `docs/` | Pre-registration and held-out case rules |
-| `frozen/` | Runner as hashed in the pre-registration |
+| `docs/` | Analysis plan (`prereg.md`, not filed with a registry) and held-out case rules |
+| `frozen/` | Runner as hashed in the plan |
