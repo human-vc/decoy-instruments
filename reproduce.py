@@ -169,7 +169,7 @@ def figure():
     ax.set_ylim(-0.6, len(rows) - 0.4)
     ax.set_xlabel("Share of responses that use the ruled-out variable as the instrument")
     ax.plot([], [], "o-", color="#1f4e79", ms=4.5, label="Adoption (any use)")
-    ax.plot([], [], "s-", color="#c0504d", ms=4, label="Informed adoption (use while naming the problem)")
+    ax.plot([], [], "s-", color="#c0504d", ms=4, label="Named adoption (use while naming the program)")
     ax.legend(loc="lower right", frameon=False, fontsize=7)
     fig.tight_layout()
     fig.savefig(ROOT / "fig_adoption.pdf")
