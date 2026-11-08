@@ -183,6 +183,9 @@ def coding():
     items = sorted(jc)
     po, k = kappa([jc[i]["detect"] for i in items], [by[i]["detect"] for i in items])
     print(f"  coder vs coder  agree {po:.3f}  kappa {k:.3f}")
+    for name, c in (("JC", jc), ("BY", by)):
+        po2, k2 = kappa([c[i]["detect"] for i in items], [key[i]["regex_detect"] for i in items])
+        print(f"  pattern vs {name} on all {len(items)}  kappa {k2:.3f}")
     final = {i: jc[i]["detect"] for i in items if jc[i]["detect"] == by[i]["detect"]}
     final.update({i: r["detect"] for i, r in cons.items()})
     ok = [i for i in items if final[i] in ("0", "1")]
