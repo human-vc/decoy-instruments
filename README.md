@@ -2,6 +2,15 @@
 
 Replication materials for "Decoy Instruments: Do AI Research Agents Act on Documentation That Rules Out an Instrument?" (Crainic and Yee).
 
+## Test your own agent
+
+```
+pip install "decoybench[all]"
+decoybench --model anthropic:claude-haiku-4-5
+```
+
+See `decoybench/README.md`.
+
 ## Reproduce
 
 ```
@@ -34,5 +43,6 @@ python run_nat.py
 | `build_coding.py` | Draws the 240-response coding sample |
 | `out5/`, `out_nat/`, `followup/` | Model responses (`out_nat/v1/` is the held-out run before calibration) |
 | `coding/` | Coding instructions, sampled responses, both coders' codes and the reconciled codes |
+| `decoybench/`, `make_cases.py` | The installable test and the script that exports its cases |
 | `docs/` | Pre-registration and held-out case rules |
 | `frozen/` | Runner as hashed in the pre-registration |

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "decoybench"
+version = "0.1.0"
+description = "Test whether an AI research agent uses an instrumental variable its own documentation rules out"
+readme = "decoybench/README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Jacob Crainic" }, { name = "Brandon Yee" }]
+dependencies = []
+
+[project.optional-dependencies]
+anthropic = ["anthropic"]
+openai = ["openai"]
+all = ["anthropic", "openai"]
+
+[project.scripts]
+decoybench = "decoybench.cli:main"
+
+[project.urls]
+Repository = "https://github.com/human-vc/decoy-instruments"
+
+[tool.setuptools]
+packages = ["decoybench"]
+
+[tool.setuptools.package-data]
+decoybench = ["cases.json.gz"]
