@@ -15,6 +15,8 @@ import scenarios_nat as N
 import scenarios_v2 as V
 
 F = ROOT / "followup"
+BOUNDS = re.compile(r"\bbound(s|ing|ed)?\b|conley|plausibly exogenous|partial identif|identified set|manski|"
+                    r"sensitivity analys|range of (estimates|effects)", re.I)
 C = ROOT / "coding"
 
 
@@ -51,11 +53,14 @@ def reasoning_off():
             continue
         ta, tb = Z.theta_j(a, "adopt", Z.VIOL), Z.theta_j(b, "adopt", Z.VIOL)
         fa = Z.theta_j(a, "fp", Z.VIOL)
+        bnd = [bool(BOUNDS.search(V.prose(t))) for t in a.text]
+        ab = Z.theta_j(a.assign(adopt=np.where((a.adopt == 1) & np.array(bnd), 0.0, a.adopt)), "adopt", Z.VIOL)
         d = (ta - tb).dropna()
         rng = np.random.default_rng(0)
         bs = d.values[rng.integers(0, len(d), (4000, len(d)))].mean(1)
         print(f"  {alt:20s} n {len(a)}  adoption {ta.mean():.3f} vs {tb.mean():.3f} ({src})  difference {d.mean():+.3f} "
-              f"[{np.percentile(bs, 2.5):+.3f}, {np.percentile(bs, 97.5):+.3f}]  named adoption {fa.mean():.3f}")
+              f"[{np.percentile(bs, 2.5):+.3f}, {np.percentile(bs, 97.5):+.3f}]  named adoption {fa.mean():.3f}  "
+              f"excluding bounded {ab.mean():.3f}")
 
 
 def explicit():
@@ -70,8 +75,7 @@ def bounded():
     print("\n== Adoption when adoptions that propose bounds or sensitivity analysis count as acceptable ==")
     ag = Z.load(ROOT / "out5")[0]
     b = ag[(ag.arm == "neutral") & (ag.threat == True) & ag.version.isin(Z.VIOL)].copy()
-    pat = re.compile(r"\bbound(s|ing|ed)?\b|conley|plausibly exogenous|partial identif|identified set|manski|"
-                     r"sensitivity analys|range of (estimates|effects)", re.I)
+    pat = BOUNDS
     b["bounds"] = [bool(pat.search(V.prose(t))) for t in b.text]
     for m in ("gemma-4-31b", "haiku-4.5", "gpt-4o-mini", "gpt-5-mini"):
         g = b[b.model == m]
